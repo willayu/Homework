@@ -1,0 +1,85 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+
+<style> 
+.block {
+  text-align: center;
+  background-image: url(https://www.bing.com/az/hprichbg/rb/OldTownPrague_ZH-CN9399088386_1920x1080.jpg);
+  margin: 20px;
+
+}
+
+.blur-content {
+  position: relative;
+  margin: 200px 0 0 260px;
+  padding: 1em;
+  max-width: 300px;
+  height: 200px;
+
+}  
+
+&:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-filter: blur(5px);
+    filter: blur(5px);
+    background: url(https://s.cdpn.io/298/wolf_20130818_129.jpg) -260px -200px;
+    z-index: -1;
+  }
+  
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,.5);
+    z-index: -1;
+  }
+}
+
+.block:before {/*before是啥？怎么添加在block前面呢？ */
+  content: '\200B';/*这个地方没懂为什么是200B
+/*   content: '';
+  margin-left: -0.25em; */
+  display: inline-block;
+  height: 100%; 
+  vertical-align: middle;/*这个元素是重点 */
+ }
+
+ .centered {
+  display: inline-block;
+  vertical-align: middle;
+  width: 300px;
+  padding: 10px 15px;
+ }
+
+.widget {
+  border-top: 2px solid rgba(255, 255, 255, .5);
+  border-bottom: 2px solid rgba(255, 255, 255, .5);
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+
+}
+
+</style> 
+</head> 
+
+<div class="block" style="height: 600px;">
+  <div class="blur-content">
+     <h1>Some text</h1>
+        <p>But he stole up to us again, and suddenly clapping his hand on my shoulder, said;"Did ye see anything looking like men going towards that ship a while ago?"</p>
+  </div>
+</div>
+
+</html>
+
+<!-- https://css-tricks.com/centering-in-the-unknown/
+我找到的教程，看懂了一部分，还蛮多不懂得。你回来教我好不好？ -->
